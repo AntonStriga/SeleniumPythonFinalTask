@@ -17,3 +17,9 @@ class ProductPage(BasePage):
 
     def should_be_added_product_price(self, price):
         assert price == self.get_element_text(*ProductsPageLocators.BASKET_TOTAL_SUM), "Added product price is wrong"
+
+    def should_not_present_success_message(self):
+        assert self.is_not_element_present(*ProductsPageLocators.SUCCESS_MESSAGE), "Success message presents"
+
+    def should_success_message_disappear(self):
+        assert self.is_disappeared(*ProductsPageLocators.SUCCESS_MESSAGE), "Success message is not disappeared"

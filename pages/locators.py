@@ -16,3 +16,4 @@ class ProductsPageLocators():
     MAIN_PRODUCT_PRICE = (By.XPATH, "//div[contains(@class, 'product_main')]/*[@class='price_color']")
     ALERT_SUCCESS = (By.CSS_SELECTOR, ".alert:nth-child(1) strong")
     BASKET_TOTAL_SUM = (By.XPATH, "//div[contains(@class, 'alert-info')]//strong")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, ".alert-success")
