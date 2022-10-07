@@ -13,7 +13,7 @@ class ProductPage(BasePage):
         return self.get_element_text(*ProductsPageLocators.MAIN_PRODUCT_PRICE)
 
     def should_be_added_product_name(self, name):
-        assert name == self.get_element_text(*ProductsPageLocators.ALERT_SUCCESS)
+        assert name == self.get_element_text(*ProductsPageLocators.ALERT_SUCCESS), "Added product name is wrong"
 
     def should_be_added_product_price(self, price):
-        assert price == self.get_element_text(*ProductsPageLocators.BASKET_TOTAL_SUM)
+        assert price == self.get_element_text(*ProductsPageLocators.BASKET_TOTAL_SUM), "Added product price is wrong"
