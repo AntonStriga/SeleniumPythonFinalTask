@@ -46,6 +46,14 @@ class BasePage():
             return False
         return True
 
+    def fill_input_field(self, how, what, text):
+        try:
+            el = self.browser.find_element(how, what).send_keys(text)
+
+        except NoAlertPresentException:
+            return False
+        return True
+
     def get_element_text(self, how, what):
         try:
             return self.browser.find_element(how, what).text
@@ -56,12 +64,16 @@ class BasePage():
         login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         login_link.click()
 
-    def should_be_login_link(self):
-        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
-
     def go_to_basket_page(self):
         login_link = self.browser.find_element(*BasePageLocators.BASKET_LINK)
         login_link.click()
+
+    def should_be_login_link(self):
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                     " probably unauthorised user"
 
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
