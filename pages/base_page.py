@@ -27,7 +27,6 @@ class BasePage():
             WebDriverWait(self.browser, timeout).until(EC.presence_of_element_located((how, what)))
         except TimeoutException:
             return True
-
         return False
 
     def is_disappeared(self, how, what, timeout=4):
@@ -36,7 +35,6 @@ class BasePage():
                 until_not(EC.presence_of_element_located((how, what)))
         except TimeoutException:
             return False
-
         return True
 
     def click_on_element(self, how, what):
@@ -49,7 +47,6 @@ class BasePage():
     def fill_input_field(self, how, what, text):
         try:
             el = self.browser.find_element(how, what).send_keys(text)
-
         except NoAlertPresentException:
             return False
         return True
